@@ -20,7 +20,7 @@ fn first_world(s: &String) -> usize {
 	s.len()
 }
 
-fn first_world_slice(s: &String) -> &str {
+fn first_world_slice(s: &str) -> &str {  // &str (string slice)
 	for (i, &item) in s.as_bytes().iter().enumerate() {
 		if item == b' ' {
 			return &s[0..i];
