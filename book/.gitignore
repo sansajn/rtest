@@ -4,3 +4,9 @@
 /ip_addr
 /hashmap
 /format
+/trait_summary
+/read_to_string
+/read_from_file
+/propagating_errors
+/open_file
+/generic_struct
