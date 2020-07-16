@@ -10,3 +10,9 @@
 /propagating_errors
 /open_file
 /generic_struct
+/lifetime_struct
+/lifetime_longest
+/generic_largest
+/vec_transform
+/iterator_methods
+/custom_iterator
