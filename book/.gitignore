@@ -16,3 +16,12 @@
 /vec_transform
 /iterator_methods
 /custom_iterator
+/drop_impl
+/deref_coercions
+/cons
+/mybox
+/reference_cycle
+/refcell_tree
+/drop_early
+/cons_rc_refcell
+/cons_rc
