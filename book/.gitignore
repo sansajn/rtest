@@ -25,3 +25,8 @@
 /drop_early
 /cons_rc_refcell
 /cons_rc
+/mutex
+/move_closure
+/spawn
+/channel_multiple_producers
+/channel
