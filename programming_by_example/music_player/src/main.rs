@@ -14,13 +14,16 @@ use gtk::{
 };
 use gtk::Orientation::{Horizontal, Vertical};
 
+mod playlist;
 mod toolbar;
 
+use crate::playlist::Playlist;
 use crate::toolbar::MusicToolbar;
 
 struct App {
 	adjustment: Adjustment,
 	cover: Image,
+	playlist: Playlist,
 	toolbar: MusicToolbar,
 	window: ApplicationWindow
 }
@@ -36,10 +39,13 @@ impl App {
 		let toolbar = MusicToolbar::new();
 		vbox.add(toolbar.toolbar());
 
+		let playlist = Playlist::new();
+		vbox.add(playlist.view());
+
 		let cover = Image::new();
 		cover.set_from_file("cover.jpg");
 		vbox.add(&cover);
-
+		
 		let adjustment = Adjustment::new(0.0, 0.0, 10.0, 0.0, 0.0, 0.0);
 		let scale = Scale::new(Horizontal, &adjustment);
 		scale.set_draw_value(false);
@@ -50,6 +56,7 @@ impl App {
 		let app = App {
 			adjustment,
 			cover,
+			playlist,
 			toolbar, 
 			window
 		};
