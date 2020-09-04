@@ -1,4 +1,5 @@
 use std::env;
+use std::rc::Rc;
 use gio::{ApplicationExt, ApplicationExtManual, ApplicationFlags};
 use gtk::{
 	Application, 
@@ -23,7 +24,7 @@ use crate::toolbar::MusicToolbar;
 struct App {
 	adjustment: Adjustment,
 	cover: Image,
-	playlist: Playlist,
+	playlist: Rc<Playlist>,
 	toolbar: MusicToolbar,
 	window: ApplicationWindow
 }
@@ -39,11 +40,11 @@ impl App {
 		let toolbar = MusicToolbar::new();
 		vbox.add(toolbar.toolbar());
 
-		let playlist = Playlist::new();
+		let playlist = Rc::new(Playlist::new());
 		vbox.add(playlist.view());
 
 		let cover = Image::new();
-		cover.set_from_file("cover.jpg");
+		// cover.set_from_file("cover.jpg");
 		vbox.add(&cover);
 		
 		let adjustment = Adjustment::new(0.0, 0.0, 10.0, 0.0, 0.0, 0.0);
